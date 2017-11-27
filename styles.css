@@ -28,3 +28,16 @@
 
 }
 
+#stars {
+    cursor: pointer;
+    font-size: 200%;
+    text-align: center;
+}
+
+.filledStar {
+    color: rgb(55, 16, 113);
+}
+
+.emptyStar {
+    color: rgb(180, 180, 180);
+}
