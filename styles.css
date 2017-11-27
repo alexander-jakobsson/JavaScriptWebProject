@@ -32,12 +32,12 @@
     cursor: pointer;
     font-size: 200%;
     text-align: center;
+    color: rgb(180, 180, 180);
 }
+
 
 .filledStar {
     color: rgb(55, 16, 113);
 }
 
-.emptyStar {
-    color: rgb(180, 180, 180);
-}
+
