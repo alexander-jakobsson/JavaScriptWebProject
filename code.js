@@ -1,3 +1,29 @@
+let MovieData = require("./data");
+let $ = require("jquery");
+
+let ActorListString = "";
+for (i = 0; i < MovieData.Actors.length; i++) {
+    ActorListString += "<li>" + MovieData.Actors[i] + "</li>";
+}
+
+let Star1 = "<span id=\"star1\" >&#9733;</span>";
+let Star2 = "<span id=\"star2\" >&#9733;</span>";
+let Star3 = "<span id=\"star3\" >&#9733;</span>";
+let Star4 = "<span id=\"star4\" >&#9733;</span>";
+let Star5 = "<span id=\"star5\" >&#9733;</span>";
+
+let Stars = 
+    "<div id=\"stars\">" +
+    Star1 + 
+    Star2 + 
+    Star3 + 
+    Star4 + 
+    Star5 +
+    "</div>"
+;
+
+
+
 function renderMovie(Movie) {
     document.querySelector("body div").innerHTML = 
         "<div id=\"BigBoy\">" 
@@ -7,43 +33,25 @@ function renderMovie(Movie) {
         + "</div>"
         + "<div id=\"TheKid\">"
         + "<h1>" + Movie.MovieTitle + "</h1>"
-        + "<div id=\"stars\">" +
-            "<span >&#9733</span>" +
-            "<span >&#9733</span>" +
-            "<span >&#9733</span>" +
-            "<span >&#9733</span>" +
-            "<span >&#9733</span>" 
-        + "</div>"
+        + Stars
         + "<h2>" + Movie.Review + "</h2>"
         + "<h3>" + Movie.ActorsSuperHeading + "</h3>"
-        + "<ul>" + ActorString + "</ul>"
+        + "<ul>" + ActorListString + "</ul>"
         + "</div>"
         + "</div>";
 }
 
 renderMovie(MovieData);
-var StarButtonRow = document.querySelectorAll("#stars>span");
 
-function changeStarRating(grade){
-  
-    for (let i = 0; i <= StarButtonRow.length - 1; i++) {
-        console.log("Grade: " + grade + " Index: " + i);
-        if (i <= grade) {  
-            console.log("Added filledStar to index: " + i);    
-            StarButtonRow[i].classList.add("filledStar");
-        } else {
-            console.log("Removed filledStar from index: " + i);
-        StarButtonRow[i].classList.remove("filledStar");
+function changeStarRating(Grade){
+    $("#stars span").removeClass("filledStar");
+    for(let i = 0; i < 5; i++) {
+        if (i <= Grade) {
+            $("#stars span").eq(i).addClass("filledStar");
         }
     }
-    
-
-    console.log("I'm in here!");
 }
 
-for (let i = 0; i < StarButtonRow.length; i++) {
-    StarButtonRow[i].addEventListener(
-        "click", function(){changeStarRating(i)});
-}
-
-
+$("#stars").on("click", "span", function(e) {
+    changeStarRating($(e.target).index());
+});

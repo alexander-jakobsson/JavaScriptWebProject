@@ -1,0 +1,29 @@
+{
+  "name": "javascriptwebproject",
+  "version": "1.0.0",
+  "description": "something",
+  "main": "code.js",
+  "scripts": {
+    "printme": "cat package.json",
+    "styles": "lessc styles.less styles.css",
+    "bundle": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexander-jakobsson/JavaScriptWebProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexander-jakobsson/JavaScriptWebProject/issues"
+  },
+  "homepage": "https://github.com/alexander-jakobsson/JavaScriptWebProject#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "react": "^16.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "webpack": "^3.8.1"
+  }
+}
