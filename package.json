@@ -5,8 +5,12 @@
   "main": "code.js",
   "scripts": {
     "printme": "cat package.json",
-    "styles": "lessc styles.less styles.css",
-    "bundle": "webpack"
+    "styles": "lessc styles.less distribution/styles.css",
+    "bundle": "webpack",
+    "copyindex": "cp index.html distribution/index.html",
+    "lintless": "stylelint styles.less",
+    "lintjs": "eslint .",
+    "build": "npm run bundle && npm run styles && npm run copyindex"
   },
   "repository": {
     "type": "git",
@@ -19,11 +23,13 @@
   },
   "homepage": "https://github.com/alexander-jakobsson/JavaScriptWebProject#readme",
   "dependencies": {
+    "eslint": "^4.12.0",
     "jquery": "^3.2.1",
     "react": "^16.1.1"
   },
   "devDependencies": {
     "mocha": "^4.0.1",
+    "stylelint": "^8.3.1",
     "webpack": "^3.8.1"
   }
 }
