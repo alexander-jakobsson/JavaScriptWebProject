@@ -9,8 +9,8 @@
     "bundle": "webpack",
     "copyindex": "cp index.html distribution/index.html",
     "lintless": "stylelint styles.less",
-    "lintjs": "eslint .",
-    "lint": "npm run lintless && npm run lintjs",
+    "lintts": "tslint -c tslint.json '*.ts'",
+    "lint": "npm run lintless && npm run lintts",
     "build": "npm run bundle && npm run styles && npm run copyindex"
   },
   "repository": {
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/alexander-jakobsson/JavaScriptWebProject#readme",
   "dependencies": {
-    "eslint": "^4.12.0",
     "jquery": "^3.2.1",
     "react": "^16.1.1"
   },
@@ -32,6 +31,9 @@
     "less": "^2.7.3",
     "mocha": "^4.0.1",
     "stylelint": "^8.3.1",
+    "ts-loader": "^3.1.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
     "webpack": "^3.8.1"
   }
 }

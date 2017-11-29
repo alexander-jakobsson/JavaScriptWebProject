@@ -1,7 +1,6 @@
-
-
-module.exports = {
-    ImageURL: "https://static.rogerebert.com/uploads/movie/movie_poster/dark-city-1998/large_5EzPQs7yDboIVZJa7Feaw7SioZa.jpg",
+export const MovieData = {
+    ImageURL:
+        "https://static.rogerebert.com/uploads/movie/movie_poster/dark-city-1998/large_5EzPQs7yDboIVZJa7Feaw7SioZa.jpg",
     ImageSubHeading: "-> --> |>0<| <-- <-",
     WebsiteTitle: "Film Review: Dark City",
     MovieTitle: "|>Film Review_ |>Dark City_",
