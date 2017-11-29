@@ -1,8 +1,10 @@
 import * as $ from "jquery";
-import {MovieData} from "./data";
+import {MovieData1} from "./data";
+import {MovieData2} from "./data";
+import { IReview } from "./interfaces";
 
 let ActorListString = "";
-for (const Actor of MovieData.Actors) {
+for (const Actor of MovieData1.Actors) {
     ActorListString += "<li>" + Actor + "</li>";
 }
 
@@ -22,24 +24,25 @@ const Stars =
     + "</div>"
 ;
 
-function renderMovie(Movie) {
+function renderdata(data: IReview) {
     document.querySelector("body div").innerHTML =
         "<div id=\"BigBoy\">"
         + "<div id=\"ThePic\">"
-        + "<img src=\"" + Movie.ImageURL + "\" />"
-        + "<p>" + Movie.ImageSubHeading + "</p>"
+        + "<img src=\"" + data.ImageURL + "\" />"
+        + "<p>" + data.ImageSubHeading + "</p>"
         + "</div>"
         + "<div id=\"TheKid\">"
-        + "<h1>" + Movie.MovieTitle + "</h1>"
+        + "<h1>" + data.MovieTitle + "</h1>"
         + Stars
-        + "<h2>" + Movie.Review + "</h2>"
-        + "<h3>" + Movie.ActorsSuperHeading + "</h3>"
+        + "<h2>" + data.Review + "</h2>"
+        + "<h3>" + data.ActorsSuperHeading + "</h3>"
         + "<ul>" + ActorListString + "</ul>"
         + "</div>"
         + "</div>";
 }
 
-renderMovie(MovieData);
+renderdata(MovieData1);
+renderdata(MovieData2);
 
 function changeStarRating(Grade) {
     $("#stars span").removeClass("filledStar");
