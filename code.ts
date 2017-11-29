@@ -3,11 +3,6 @@ import {MovieData1} from "./data";
 import {MovieData2} from "./data";
 import { IReview } from "./interfaces";
 
-let ActorListString = "";
-for (const Actor of MovieData1.Actors) {
-    ActorListString += "<li>" + Actor + "</li>";
-}
-
 const Star1 = "<span id=\"star1\" >&#9733;</span>";
 const Star2 = "<span id=\"star2\" >&#9733;</span>";
 const Star3 = "<span id=\"star3\" >&#9733;</span>";
@@ -25,8 +20,12 @@ const Stars =
 ;
 
 function renderdata(data: IReview) {
-    document.querySelector("body div").innerHTML =
-        "<div id=\"BigBoy\">"
+    let ActorListString = "";
+    for (const Actor of data.Actors) {
+        ActorListString += "<li>" + Actor + "</li>";
+    }
+    const MyNode =
+        "<div id=" + data.MovieTitle + "/>"
         + "<div id=\"ThePic\">"
         + "<img src=\"" + data.ImageURL + "\" />"
         + "<p>" + data.ImageSubHeading + "</p>"
@@ -39,6 +38,8 @@ function renderdata(data: IReview) {
         + "<ul>" + ActorListString + "</ul>"
         + "</div>"
         + "</div>";
+    const MainDiv = document.querySelector("body div");
+    MainDiv.insertAdjacentHTML("beforeend", MyNode);
 }
 
 renderdata(MovieData1);
